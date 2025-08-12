@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looma Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            color: #a0a0a0;
+            background: #1a1a1a;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #252525;
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+        
+        h1 {
+            color: #00bcd4;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        h2 {
+            color: #00bcd4;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .step {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .step h3 {
+            color: #00bcd4;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .step p, .step li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .step ol {
+            padding-left: 1.5rem;
+            color: #ccc;
+        }
+        
+        .download-section {
+            text-align: center;
+            background: #2a2a2a;
+            border: 1px solid #00bcd4;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .download-btn {
+            background: #00bcd4;
+            color: #1a1a1a;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin: 0 10px;
+            display: inline-block;
+            border-radius: 0;
+        }
+        
+        .download-btn:hover {
+            background: #26c6da;
+            color: #000;
+        }
+        
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .platform {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .platform h4 {
+            color: #00bcd4;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+        
+        .platform p {
+            color: #999;
+            font-size: 10px;
+        }
+        
+        .warning {
+            background: #2a2a2a;
+            border: 1px solid #ff6b6b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        
+        .warning p {
+            color: #ccc;
+            font-size: 12px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #00bcd4;
+            text-decoration: none;
+            margin-top: 2rem;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .back-link:hover {
+            color: #26c6da;
+        }
+        
+        code {
+            background: #333;
+            color: #00bcd4;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Looma Setup Guide</h1>
+        
+        <div class="download-section">
+            <h3 style="color: #00bcd4; margin-bottom: 1rem; text-transform: uppercase;">Get Started</h3>
+            <p style="color: #ccc; margin-bottom: 1rem;">Download the extension package and follow the setup instructions below</p>
+            <a href="create-zip.html" class="download-btn">Download ZIP</a>
+            <a href="index.html" class="download-btn">Main Page</a>
+        </div>
+        
+        <h2>Installation Steps</h2>
+        
+        <div class="step">
+            <h3>Step 1: Download & Extract</h3>
+            <p>Download the ZIP file using the button above. Extract it to a permanent location on your computer (e.g., Desktop/looma-extension).</p>
+            <p><strong>Important:</strong> Don't delete this folder after installation - Chrome needs continuous access to the files.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Open Chrome Extensions</h3>
+            <ol>
+                <li>Open Google Chrome browser</li>
+                <li>Type <code>chrome://extensions/</code> in the address bar</li>
+                <li>Or go to Menu → More Tools → Extensions</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Enable Developer Mode</h3>
+            <ol>
+                <li>Find the "Developer mode" toggle in the top-right corner</li>
+                <li>Click to enable it</li>
+                <li>New buttons will appear: "Load unpacked", "Pack extension", "Update"</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Step 4: Load Extension</h3>
+            <ol>
+                <li>Click the "Load unpacked" button</li>
+                <li>Navigate to the folder where you extracted the ZIP</li>
+                <li>Select the folder containing manifest.json</li>
+                <li>Click "Select Folder"</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Step 5: Test Installation</h3>
+            <ol>
+                <li>Visit one of the supported AI platforms</li>
+                <li>Start or continue a conversation</li>
+                <li>Look for the Looma sidebar to appear automatically</li>
+                <li>Try clicking on indexed queries to navigate</li>
+            </ol>
+        </div>
+        
+        <h2>Supported Platforms</h2>
+        <div class="platforms">
+            <div class="platform">
+                <h4>ChatGPT</h4>
+                <p>chat.openai.com<br>chatgpt.com</p>
+            </div>
+            <div class="platform">
+                <h4>Claude</h4>
+                <p>claude.ai</p>
+            </div>
+            <div class="platform">
+                <h4>Gemini</h4>
+                <p>gemini.google.com<br>bard.google.com</p>
+            </div>
+            <div class="platform">
+                <h4>DeepSeek</h4>
+                <p>chat.deepseek.com</p>
+            </div>
+            <div class="platform">
+                <h4>Grok</h4>
+                <p>grok.x.ai</p>
+            </div>
+        </div>
+        
+        <div class="warning">
+            <h3>Troubleshooting</h3>
+            <p><strong>Extension not appearing?</strong> Make sure you're on a supported platform and have started a conversation.</p>
+            <p><strong>Load unpacked failed?</strong> Ensure you selected the folder containing manifest.json, not a parent folder.</p>
+            <p><strong>Sidebar not working?</strong> Try refreshing the AI platform page after installing the extension.</p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Back to main page</a>
+    </div>
+</body>
+</html>

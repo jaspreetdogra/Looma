@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download AI Chat Indexer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+        
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .success {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .step {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .download-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .download-btn:hover {
+            background: #2563eb;
+        }
+        
+        .download-btn.alt {
+            background: #059669;
+        }
+        
+        .download-btn.alt:hover {
+            background: #047857;
+        }
+        
+        .file-structure {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .manual-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .file-link {
+            display: block;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .file-link:hover {
+            background: #e2e8f0;
+            color: #3b82f6;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Download AI Chat Indexer Extension</h1>
+        
+        <div class="warning">
+            <strong>Fix for "Manifest file is missing" error:</strong><br>
+            The problem happens when the folder structure isn't created correctly. Follow these exact steps to fix it.
+        </div>
+        
+        <div class="step">
+            <h3>Step 1: Download All Files</h3>
+            <p>Right-click each link below and select "Save link as..." to download each file:</p>
+            
+            <div class="manual-links">
+                <a href="manifest.json" download class="file-link">📄 manifest.json</a>
+                <a href="background.js" download class="file-link">⚙️ background.js</a>
+                <a href="content.js" download class="file-link">📝 content.js</a>
+                <a href="popup.html" download class="file-link">🖼️ popup.html</a>
+                <a href="core/indexer.js" download class="file-link">🧠 indexer.js</a>
+                <a href="utils/platformDetector.js" download class="file-link">🔍 platformDetector.js</a>
+                <a href="utils/colorExtractor.js" download class="file-link">🎨 colorExtractor.js</a>
+                <a href="ui/themeManager.js" download class="file-link">🎭 themeManager.js</a>
+                <a href="styles/adaptive.css" download class="file-link">💄 adaptive.css</a>
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Create Exact Folder Structure</h3>
+            <p>Create a new folder called <strong>ai-chat-indexer</strong> and organize files like this:</p>
+            
+            <div class="file-structure">ai-chat-indexer/                  ← Main folder (create this)
+├── manifest.json                ← Put directly in main folder
+├── background.js                ← Put directly in main folder  
+├── content.js                   ← Put directly in main folder
+├── popup.html                   ← Put directly in main folder
+├── core/                        ← Create this subfolder
+│   └── indexer.js              ← Put indexer.js inside core folder
+├── utils/                       ← Create this subfolder
+│   ├── platformDetector.js     ← Put inside utils folder
+│   └── colorExtractor.js       ← Put inside utils folder
+├── ui/                          ← Create this subfolder
+│   └── themeManager.js         ← Put inside ui folder
+└── styles/                      ← Create this subfolder
+    └── adaptive.css            ← Put inside styles folder</div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Load Extension in Chrome</h3>
+            <ol>
+                <li>Open Chrome and go to <code>chrome://extensions/</code></li>
+                <li>Turn on <strong>Developer mode</strong> (toggle in top-right)</li>
+                <li>Click <strong>"Load unpacked"</strong></li>
+                <li>Select your <strong>ai-chat-indexer</strong> folder (the main folder, not a subfolder)</li>
+                <li>The extension should load without the "Manifest file is missing" error!</li>
+            </ol>
+        </div>
+        
+        <div class="success">
+            <strong>✅ Success Check:</strong><br>
+            If you did it correctly, you should see "AI Chat Indexer" appear in your extensions list. 
+            Visit ChatGPT, Gemini, Perplexity, DeepSeek, Grok, or Claude to test it!
+        </div>
+        
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="setup-extension.html" class="download-btn alt">📖 Detailed Setup Guide</a>
+            <a href="index.html" class="download-btn">🏠 Back to Homepage</a>
+        </div>
+        
+        <div class="step">
+            <h3>🔧 Troubleshooting</h3>
+            <p><strong>Still getting "Manifest file is missing"?</strong></p>
+            <ul>
+                <li>Make sure <code>manifest.json</code> is directly in the <code>ai-chat-indexer</code> folder, not in a subfolder</li>
+                <li>Check that you're selecting the <code>ai-chat-indexer</code> folder when clicking "Load unpacked", not a file inside it</li>
+                <li>Verify all 9 files are downloaded and placed in the correct folders</li>
+                <li>Try creating a completely new folder and downloading all files again</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

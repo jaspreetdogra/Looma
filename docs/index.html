@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI CHAT INDEXER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            color: #a0a0a0;
+            background: #1a1a1a;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00bcd4;
+            border: 1px solid #333;
+            background: #252525;
+            padding: 2rem;
+            border-radius: 4px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00bcd4;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            background: #252525;
+            border: 1px solid #333;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            color: #00bcd4;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .installation-steps {
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            background: #f8fafc;
+            border-left: 4px solid #4f46e5;
+            border-radius: 8px;
+        }
+        
+        .step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -12px;
+            top: 1.5rem;
+            width: 24px;
+            height: 24px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+        
+        .step p {
+            color: #6b7280;
+        }
+        
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .platform {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 1px solid #404040;
+            transition: all 0.2s ease;
+        }
+        
+        .platform:hover {
+            border-color: #00bcd4;
+            background: #303030;
+        }
+        
+        .platform h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #00bcd4;
+            font-size: 1.2rem;
+        }
+        
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .platform a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+        
+        .platform a:hover {
+            color: #26c6da;
+        }
+        
+        .platform p {
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .feature {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 1px solid #404040;
+        }
+        
+        .feature h4 {
+            color: #00bcd4;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature p {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .download-section {
+            text-align: center;
+            background: #303030;
+            border: 1px solid #00bcd4;
+            color: #ccc;
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #00bcd4;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 1rem 0.5rem;
+            transition: all 0.2s ease;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .download-btn:hover {
+            background: #26c6da;
+            color: #000;
+        }
+        
+        .file-structure {
+            background: #2a2a2a;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 1rem 0;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .alert {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .alert-warning {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+        
+        .alert h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .alert-warning h4 {
+            color: #dc2626;
+        }
+        
+        .alert p {
+            color: #78350f;
+            margin: 0;
+        }
+        
+        .alert-warning p {
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Looma</h1>
+            <p>Smart conversation navigation for AI chat platforms</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Installation Instructions</h2>
+                <div class="installation-steps">
+                    <div class="step">
+                        <h3>Download Extension Files</h3>
+                        <p>Download all the extension files from this server to your local computer. You can right-click and save each file, or use the download button below to get a ZIP file.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>Open Chrome Extensions Page</h3>
+                        <p>Open Google Chrome and navigate to <code>chrome://extensions/</code> or go to Chrome menu → More tools → Extensions.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>Enable Developer Mode</h3>
+                        <p>Toggle the "Developer mode" switch in the top-right corner of the extensions page.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>Load Unpacked Extension</h3>
+                        <p>Click "Load unpacked" button and select the folder containing the extension files (the folder with manifest.json).</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>Test on AI Platforms</h3>
+                        <p>Visit one of the supported AI chat platforms and start or continue a conversation. The sidebar should appear automatically!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <h3>Download Extension</h3>
+                <p>Get the extension files to install on your Chrome browser</p>
+                <a href="create-zip.html" class="download-btn">Download ZIP File</a>
+                <a href="setup-extension.html" class="download-btn">Setup Guide</a>
+            </div>
+            
+            <div class="section">
+                <h2>Supported Platforms</h2>
+                <div class="platforms">
+                    <div class="platform">
+                        <h3>
+                            <svg class="platform-icon" viewBox="0 0 24 24" fill="#10a37f">
+                                <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142-.0852 4.783-2.7582a.7712.7712 0 0 0 .7806 0l5.8428 3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zm-2.4569-2.8096a4.4774 4.4774 0 0 1 2.3403-1.9581V16.12a.7714.7714 0 0 0 .3923.6813l5.8428 3.3685-2.02 1.1686a.0757.0757 0 0 1-.071 0l-4.8418-2.7952a4.4992 4.4992 0 0 1-1.6327-6.2719zm16.5078.2732l-5.8428-3.3685L18.4814 10.2a.0757.0757 0 0 1 .071 0l4.8418 2.7952a4.4944 4.4944 0 0 1-.6765 8.1042v-3.312a.7714.7714 0 0 0-.3927-.6813zm2.0107-3.0231l-.142.0852-4.783 2.7582a.7712.7712 0 0 0-.7806 0L9.39 15.4833V13.1509a.0804.0804 0 0 1 .0332-.0615l4.8418-2.7952a4.4992 4.4992 0 0 1 6.1408 1.6464 4.4708 4.4708 0 0 1 .5346 3.0137zM8.3065 12.863l-2.02-1.1686a.071.071 0 0 1-.038-.052V6.0826a4.504 4.504 0 0 1 7.3757-3.4537l-.1419.0804L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9996l-2.6069 1.4998L9.4041 13.553z"/>
+                            </svg>
+                            ChatGPT
+                        </h3>
+                        <p>Works on <a href="https://chat.openai.com" target="_blank">chat.openai.com</a> and <a href="https://chatgpt.com" target="_blank">chatgpt.com</a></p>
+                        <p>Automatically detects user queries and builds a navigable index</p>
+                    </div>
+                    
+                    <div class="platform">
+                        <h3>
+                            <svg class="platform-icon" viewBox="0 0 24 24" fill="#4285f4">
+                                <path d="M12 2L13.09 8.26L22 12L13.09 15.74L12 22L10.91 15.74L2 12L10.91 8.26L12 2Z"/>
+                            </svg>
+                            Google Gemini
+                        </h3>
+                        <p>Works on <a href="https://gemini.google.com" target="_blank">gemini.google.com</a> and <a href="https://bard.google.com" target="_blank">bard.google.com</a></p>
+                        <p>Adapts to Google's design language and color schemes</p>
+                    </div>
+                    
+                    <div class="platform">
+
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Key Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h4>Real-time Indexing</h4>
+                        <p>Automatically detects and indexes your prompts as you chat across all supported AI platforms</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h4>Click Navigation</h4>
+                        <p>Click on any indexed query to instantly scroll to that part of your conversation</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h4>Search & Filter</h4>
+                        <p>Quickly find specific conversations with built-in search functionality</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h4>Dark Pixel Theme</h4>
+                        <p>Clean pixel-style interface that's easy on the eyes during long sessions</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h4>Persistent Storage</h4>
+                        <p>Your conversation index automatically saves and persists across browser sessions</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <h4>Multi-Platform Support</h4>
+                        <p>Compatible with ChatGPT, Claude, Gemini, DeepSeek, and Grok</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🗂️ Extension File Structure</h2>
+                <div class="file-structure">
+📁 ai-chat-indexer/
+├── 📄 manifest.json          # Extension configuration
+├── 📄 background.js          # Service worker for data management
+├── 📄 content.js             # Main content script orchestrator
+├── 📁 core/
+│   └── 📄 indexer.js         # Conversation indexing engine
+├── 📁 utils/
+│   ├── 📄 platformDetector.js # AI platform detection
+│   └── 📄 colorExtractor.js   # Adaptive color theming
+├── 📁 ui/
+│   └── 📄 themeManager.js     # UI theme management
+└── 📁 styles/
+    └── 📄 adaptive.css        # Adaptive styling system
+                </div>
+            </div>
+            
+            <div class="alert alert-warning">
+                <h4>🔒 Privacy & Security</h4>
+                <p>This extension operates entirely client-side without sending any data to external servers. Your conversations remain private and are only indexed locally in your browser.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🚀 How to Test</h2>
+                <div class="step">
+                    <h3>1. Visit a Supported Platform</h3>
+                    <p>Go to ChatGPT, Gemini, or Perplexity and start or continue an existing conversation.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>2. Look for the Sidebar</h3>
+                    <p>A sidebar should appear on the right side of the screen with your conversation queries indexed.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>3. Test Navigation</h3>
+                    <p>Click on any query in the sidebar to jump to that part of the conversation.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>4. Try the Features</h3>
+                    <p>Test the search functionality, collapsible sidebar, and theme adaptation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Choose your preferred installation method:</p>
+            <a href="download-extension.html" class="download-btn">🚀 Download Extension (Recommended)</a>
+            <a href="create-zip.html" class="download-btn">📦 Try ZIP Download</a>
+            <a href="setup-extension.html" class="download-btn">🛠️ Detailed Setup Guide</a>
+        </div>
+    </div>
+    
+    <script>
+        // Navigate to download page
+        console.log('AI Chat Indexer installation guide loaded');
+    </script>
+</body>
+</html>
